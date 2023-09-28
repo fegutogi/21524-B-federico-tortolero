@@ -14,7 +14,9 @@
             <h1><%= posteo.title %></h1>
             <span><%= posteo.content %></span>
             <span><b><%= posteo.createdAt %></b></span>
+            <a href="edit/<%= posteo.id %>"><button>Editar</button></a>
             <% }); %>
+            
         </ul>
         
         <script src="/js/bootstrap.js"></script>

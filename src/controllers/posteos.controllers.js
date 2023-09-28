@@ -47,7 +47,7 @@ const updatePosteo = async (req, res) => {
     return res.send("No se encontró el posteo para editar");
   }
 
-  await posteo.update({ title, content, image });
+  await posteo.updatePosteo({ title, content, image });
 
   res.redirect("/");
 };
