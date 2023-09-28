@@ -19,7 +19,7 @@ const mostrarFormularioEdicion = async (req, res) => {
 
     if (!posteo) {
       // Maneja el caso en el que el posteo no se encuentra
-      res.status(404).send("No se encontró el posteo para editar.");
+      res.status(404).send('No se encontró el posteo para editar. Prueba colocar una "/" seguido de un número en la barra de direcciones para visualizar los posteos');
       return;
     }
 
