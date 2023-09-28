@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posteos | Editar Post</title>
-    <link rel="stylesheet" href="../../public/css/bootstrap.css">
-    <link rel="stylesheet" href="../../public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/styles.css"> 
 </head>
 <body>
-    <form action="/posteos/<%= posteo.id %>" method="post">
-        <input type="text" name="titulo" placeholder="Título" value="<%= posteo.title %>"><br>
-        <textarea name="content" id="" cols="30" rows="10"><%= posteo.content %></textarea><br>
-        <input type="text" name="image" id="" value="<%= posteo.image %>">
-        <button>Editar post</button>
+    <%- include('./partials/navbar'); %>
+    <form action="/posteos/edit" method="get">
+        <label for="posteoId">Selecciona un posteo para editar:</label>
+        <select name="posteoId" id="posteoId">
+            <% listaDePosteos.forEach((posteo) => { %>
+                <option value="<%= posteo.id %>"><%= posteo.title %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Editar post</button>
     </form>
     <script src="../../public/js/bootstrap.js"></script>
 </body>

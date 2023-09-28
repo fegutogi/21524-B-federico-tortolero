@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
+    <%- include('./partials/navbar'); %>
     <form action="/posteos" method="post">
         <input type="text" name="title" placeholder="Título"><br>
-        <textarea name="content" id="" cols="30" rows="10">contenido</textarea><br>
-        <input type="text" name="image" id="">
+        <textarea name="content" id="" cols="30" rows="10" placeholder="contenido"></textarea><br>
+        <input type="text" name="image" placeholder="url de la imagen" id="">
         <button>Crear post</button>
     </form>
     <script src="../../public/js/bootstrap.js"></script>
