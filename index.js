@@ -27,7 +27,7 @@ app.set("view engine", "posteos_db");
 app.get("/", async (req, res) => {
   const posteos = await PosteoModel.findAll();
 
-  res.render("index", {
+  res.render("/index", {
     title: "Pagina princial",
     listaDePosteos: posteos.reverse(),
   });
