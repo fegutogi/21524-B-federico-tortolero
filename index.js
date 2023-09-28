@@ -9,6 +9,8 @@ const { PosteoModel } = require("./src/models/Posteos");
 
 const app = express();
 
+const { mostrarFormularioEdicion } = require("./src/controllers/posteos.controllers");
+
 // Conectamos los controllers
 app.use(express.json());
 
@@ -19,9 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan("dev"));
 
-app.set("views", __dirname + "/src" + "/views");
-
 app.use(express.static(__dirname + "/public"));
+
+app.set("views", __dirname + "/src/views");
 
 app.set("view engine", "ejs");
 
@@ -38,13 +40,46 @@ app.get("/new", async (req, res) => {
   res.render("new");
 });
 
+app.get("/edit", mostrarFormularioEdicion);
+
 app.get("/edit/:id", async (req, res) => {
-  const posteoId = req.params.id;
+  try {
+    const posteoId = req.params.id;
+    const posteo = await PosteoModel.findByPk(posteoId);
+    const listaDePosteos = await PosteoModel.findAll();
 
-  const posteo = await PosteoModel.findByPk(posteoId);
+    if (!posteo) {
+      return res.send("No se encontró el posteo para editar");
+    }
 
-  res.render("edit", { posteo });
+    res.render("edit", {
+      title: "Editar Posteo",
+      posteo,
+      listaDePosteos,
+    });
+  } catch (error) {
+    console.error("Error al mostrar el formulario de edición:", error);
+    res.status(500).send("Error interno del servidor");
+  }
 });
+
+app.get("/delete/:id", async (req, res) => {
+  try {
+    const posteoId = req.params.id;
+    const posteo = await PosteoModel.findByPk(posteoId);
+
+    if (!posteo) {
+      return res.send("No se encontró el posteo para eliminar");
+    }
+
+    await posteo.destroy();
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error al eliminar el posteo:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+});
+
 
 app.use("/posteos", require("./src/routes/posteos.routers"));
 

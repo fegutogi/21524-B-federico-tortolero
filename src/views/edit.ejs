@@ -9,14 +9,17 @@
 </head>
 <body>
     <%- include('./partials/navbar'); %>
-    <form action="/posteos/edit" method="get">
-        <label for="posteoId">Selecciona un posteo para editar:</label>
-        <select name="posteoId" id="posteoId">
-            <% listaDePosteos.forEach((posteo) => { %>
-                <option value="<%= posteo.id %>"><%= posteo.title %></option>
+    <form action="/posteos/<%= posteo.id %>" method="post">
+        <select name="posteoId">
+            <% listaDePosteos.forEach(post => { %>
+                <option value="<%= posteo.id %>" <%= posteo.id === posteo.id ? 'selected' : '' %>><%= posteo.title %></option>
             <% }); %>
         </select>
-        <button type="submit">Editar post</button>
+        <input type="text" name="titulo" placeholder="Título" value="<%= posteo.title %>"><br>
+        <textarea name="content" id="" cols="30" rows="10"><%= posteo.content %></textarea><br>
+        <input type="text" name="image" id="" value="<%= posteo.image %>">
+        <button>Editar post</button>
+        <a href="/delete/<%= posteo.id %>" class="btn btn-danger">Eliminar</a>
     </form>
     <script src="../../public/js/bootstrap.js"></script>
 </body>
