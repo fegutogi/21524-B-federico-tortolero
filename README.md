@@ -15,13 +15,7 @@ Al estar trabajando con un entorno local de base de datos, será necesario que e
 
 * Agregar post en la db
 * Leer post alojados en la db
-* Actualizar o eliminar post guardados en la db:
-
-    Para ésto, será necesario en la barra de direcciones
-    colocar un /"id", siendo "id" el número del post.
-
-    ejemplo: [http://localhost:4282/edit/1]
-
-
+* Editar post alojado en la db (Se agregó un botón de editar en cada post para hacer más fácil e intuitivo)
+* Borrar un post: Al entrar en la ediciónd el post, se visualiza un botón rojo para elminar y te reenvía al listado principal.
 
 Con este proyecto aprendo habilidades esenciales en diseño web, gestión de bases de datos y programación, creando una solución personalizada para el Trabajo Integrador Final.

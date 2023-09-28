@@ -9,10 +9,20 @@
 <body>
     <%- include('./partials/navbar'); %>
     <form action="/posteos" method="post">
-        <input type="text" name="title" placeholder="Título"><br>
-        <textarea name="content" id="" cols="30" rows="10" placeholder="contenido"></textarea><br>
-        <input type="text" name="image" placeholder="url de la imagen" id="">
-        <button>Crear post</button>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Título del Post:</label>
+            <input type="text" class="form-control" name="title" placeholder="Título del Post">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Contenido del Post:</label>
+            <textarea class="form-control" name="content" id="" cols="30" rows="10" placeholder="Contenido del Post"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">URL de la imagen para el Post:</label>
+            <input type="text" class="form-control" name="image" placeholder="Pega acá la URL de la imagen!">
+        </div>
+        <button><a type="button" class="btn btn-success btn-lg">Crear post</button></a>
     </form>
     <script src="/js/bootstrap.js"></script>
 </body>

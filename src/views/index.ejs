@@ -8,22 +8,17 @@
 </head>
 <body>
     <%- include('./partials/navbar'); %>
-
-    <ul>
         <% listaDePosteos.forEach((posteo) => { %>
-
             <div class="card" style="width: 18rem;">
                 <img src="<%= posteo.image %>" class="card-img-top" alt="Imagen del post">
                 <div class="card-body">
                   <h5 class="card-title"><%= posteo.title %></h5>
+                  <p class="card-text"><%= posteo.content %></p><br>
                   <p class="card-text"><%= posteo.createdAt %></p>
                   <a href="edit/<%= posteo.id %>" class="btn btn-primary">Editar</a>
                 </div>
               </div>
             <% }); %>
-            
-    </ul>
-        
         <script src="/js/bootstrap.js"></script>
 </body>
 </html>

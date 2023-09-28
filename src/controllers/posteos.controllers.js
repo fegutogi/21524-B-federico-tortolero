@@ -38,16 +38,16 @@ const mostrarFormularioEdicion = async (req, res) => {
 };
 
 const updatePosteo = async (req, res) => {
-  const posteoId = req.body.posteoId;
+  const posteoId = req.params.id;
   const { title, content, image } = req.body;
 
   const posteo = await PosteoModel.findByPk(posteoId);
 
   if (!posteo) {
     return res.send("No se encontró el posteo para editar");
-  }
+  } 
 
-  await posteo.updatePosteo({ title, content, image });
+  await posteo.update({ title, content, image });
 
   res.redirect("/");
 };

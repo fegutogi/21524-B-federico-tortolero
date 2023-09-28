@@ -9,11 +9,21 @@
 <body>
     <%- include('./partials/navbar'); %>
     <form action="/posteos/<%= posteo.id %>" method="post">
-        <input type="text" name="titulo" placeholder="Título" value="<%= posteo.title %>"><br>
-        <textarea name="content" id="" cols="30" rows="10"><%= posteo.content %></textarea><br>
-        <input type="text" name="image" id="" value="<%= posteo.image %>">
-        <button>Editar post</button>
-        <button><a href="/delete/<%= posteo.id %>" class="btn btn-danger">Eliminar</a></button>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Título del Post:</label>
+            <input type="text" class="form-control" name="title" placeholder="Título del Post" value="<%= posteo.title %>">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Contenido del Post:</label>
+            <textarea class="form-control" name="content" id="" cols="30" rows="10" placeholder="Contenido del Post"><%= posteo.content %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">URL de la imagen para el Post:</label>
+            <input type="text" class="form-control" name="image" placeholder="Pega acá la URL de la imagen!" value="<%= posteo.image %>">
+        </div>
+        <button><a type="button" class="btn btn-success btn-lg">Guardar</button></a>
+        <button type="button" class="btn btn-danger btn-lg"><a href="/delete/<%= posteo.id %>">Eliminar</button></a>
     </form>
     <script src="/js/bootstrap.js"></script>
 </body>
