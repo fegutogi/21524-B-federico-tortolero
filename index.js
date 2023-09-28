@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 // Habilitamos el envío desde un formulario de html
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
 app.use(morgan("dev"));
