@@ -15,6 +15,7 @@ app.use(express.json());
 // Habilitamos el envío desde un formulario de html
 app.use(express.urlencoded({ extended: false }));
 
+// Middlewares
 app.use(cors());
 app.use(morgan("dev"));
 
