@@ -23,13 +23,13 @@ app.set("views", __dirname + "/src" + "/views");
 
 app.use(express.static(__dirname + "/public"));
 
-app.set("view engine", "posteos_db");
+app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
   const posteos = await PosteoModel.findAll();
 
-  res.render("/index", {
-    title: "Pagina princial",
+  res.render("index", {
+    title: "Lista de Posteos",
     listaDePosteos: posteos.reverse(),
   });
 });
