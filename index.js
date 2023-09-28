@@ -11,6 +11,9 @@ const app = express();
 
 const { mostrarFormularioEdicion } = require("./src/controllers/posteos.controllers");
 
+// Configuramos para leer los archivos estáticos
+app.use(express.static(__dirname + "/public"));
+
 // Conectamos los controllers
 app.use(express.json());
 
@@ -20,8 +23,6 @@ app.use(express.urlencoded({ extended: false }));
 // Middlewares
 app.use(cors());
 app.use(morgan("dev"));
-
-app.use(express.static(__dirname + "/public"));
 
 app.set("views", __dirname + "/src/views");
 
