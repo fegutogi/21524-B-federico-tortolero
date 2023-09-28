@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posteos | Editar Post</title>
+</head>
+<body>
+    <form action="/posteos/<%= posteo.id %>" method="post">
+        <input type="text" name="titulo" placeholder="Título" value="<%= posteo.title %>"><br>
+        <textarea name="content" id="" cols="30" rows="10"><%= posteo.content %></textarea><br>
+        <input type="text" name="image" id="" value="<%= posteo.image %>">
+        <button>Editar post</button>
+    </form>
+</body>
+</html>
